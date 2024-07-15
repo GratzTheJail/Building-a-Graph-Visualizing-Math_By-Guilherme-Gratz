@@ -73,7 +73,7 @@ Shader "Graph/Point Shader" {
 		float _ColorMultiplier;
 
 		void ConfigureSurface(Input input, inout SurfaceOutputStandard surface){
-			surface.Albedo.rg		= input.worldPos.xy * _ColorMultiplier + _ColorOffset;
+			surface.Albedo.rg		= saturate(input.worldPos.xy * _ColorMultiplier + _ColorOffset);
 			surface.Smoothness	= _Smoothness;
 		}
 		ENDCG
